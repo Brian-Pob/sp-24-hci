@@ -37,3 +37,10 @@ In short, our research led us to find that people found the search aspect of our
 ## Links
 
 - [Figma Mockup](https://www.figma.com/file/UkkLXPM5MXpLboB9icnqpO/Mid-Fi-Prototype?type=design&node-id=1%3A5&mode=design&t=kfQoQ4RooEypuZGP-1)
+- [Figma interactive prototype](https://www.figma.com/proto/UkkLXPM5MXpLboB9icnqpO/Mid-Fi-Prototype?page-id=0%3A1&type=design&node-id=1-2&viewport=261%2C410%2C0.65&t=5z0QKaF2a6GNjVHo-1&scaling=scale-down&starting-point-node-id=1%3A2&mode=design)
+
+## Resources
+
+- [shadcn/ui Figma component library](https://www.figma.com/community/file/1203061493325953101)
+- [Heroicons](https://heroicons.com/)
+- [Phosphor Icons](https://phosphoricons.com/)
