@@ -19,6 +19,19 @@ In short, our research led us to find that people found the search aspect of our
 
 ## Storyboarding
 
+### Easy
+
+![Easy Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-1.1.jpg)
+![Easy Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-1.2.jpg)
+
+### Medium
+
+![Medium Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-2.jpg)
+
+### Hard
+
+![Hard Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-3.1.jpg)
+![Hard Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-3.2.jpg)
 
 
 ## Links
