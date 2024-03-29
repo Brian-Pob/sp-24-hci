@@ -7,7 +7,7 @@
 - Alan Castillo
 - Jonathan Alcineus
 
-![Mockups of the project](https://github.com/Brian-Pob/sp-24-hci/blob/main/Facebook%20Post%20OG%20Image.png)
+![Mockups of the project](/readme-images/banner.png)
 
 ## Introduction of the Project - GroupConnect
 
@@ -21,17 +21,17 @@ In short, our research led us to find that people found the search aspect of our
 
 ### Easy
 
-![Easy Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-1.1.jpg)
-![Easy Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-1.2.jpg)
+![Easy Level](/readme-images/Storyboard-1.1.jpg)
+![Easy Level](/readme-images/Storyboard-1.2.jpg)
 
 ### Medium
 
-![Medium Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-2.jpg)
+![Medium Level](/readme-imagesStoryboard-2.jpg)
 
 ### Hard
 
-![Hard Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-3.1.jpg)
-![Hard Level](https://github.com/Brian-Pob/sp-24-hci/blob/main/Storyboard-3.2.jpg)
+![Hard Level](/readme-images/Storyboard-3.1.jpg)
+![Hard Level](/readme-images/Storyboard-3.2.jpg)
 
 
 ## Links
