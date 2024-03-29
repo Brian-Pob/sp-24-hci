@@ -21,8 +21,8 @@ In short, our research led us to find that people found the search aspect of our
 
 ### Easy
 
-![Easy Level](/readme-imagesStoryboard-1.1.jpg)
-![Easy Level](/readme-imagesStoryboard-1.2.jpg)
+![Easy Level](/readme-images/Storyboard-1.1.jpg)
+![Easy Level](/readme-images/Storyboard-1.2.jpg)
 
 ### Medium
 
@@ -30,8 +30,8 @@ In short, our research led us to find that people found the search aspect of our
 
 ### Hard
 
-![Hard Level](/readme-imagesStoryboard-3.1.jpg)
-![Hard Level](/readme-imagesStoryboard-3.2.jpg)
+![Hard Level](/readme-images/Storyboard-3.1.jpg)
+![Hard Level](/readme-images/Storyboard-3.2.jpg)
 
 
 ## Links
