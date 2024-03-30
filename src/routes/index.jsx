@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { redirect } from "@tanstack/react-router";
-
+// import { useAuth } from "@/hooks/useAuth";
 function isAuthenticated() {
 	// For testing, get ?auth=true in the URL
 	return window.localStorage.getItem("isAuth") === "true";
