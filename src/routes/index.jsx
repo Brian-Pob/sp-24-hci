@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { redirect } from "@tanstack/react-router";
 
-function isAuthenticated(){
+function isAuthenticated() {
 	// For testing, get ?auth=true in the URL
-	return new URLSearchParams(window.location.search).has("auth", "true");
+	return window.localStorage.getItem("isAuth") === "true";
 	// return false;
 }
 

@@ -1,11 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.svg";
-
 import { LoginForm } from "@/components/LoginForm";
+import { useAuth } from "@/hooks/useAuth";
+import { Navigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/login")({
-	component: () => (
+	component: Login,
+});
+
+function Login() {
+	const [isAuth] = useAuth();
+	return isAuth ? (
+		<Navigate to="/" />
+	) : (
 		<div className="w-full flex flex-col gap-20">
 			<div>
 				<img src={logo} alt="logo" className="w-32 h-32 mx-auto" />
@@ -24,5 +32,5 @@ export const Route = createFileRoute("/login")({
 				</div>
 			</div>
 		</div>
-	),
-});
+	);
+}
