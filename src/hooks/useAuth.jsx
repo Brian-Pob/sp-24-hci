@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function useAuth() {
 	const [isAuth, setAuthState] = useState(
-		window.localStorage.getItem("isAuth") || false,
+		window.localStorage.getItem("isAuth") === "true",
 	);
 
 	function setAuth(auth) {

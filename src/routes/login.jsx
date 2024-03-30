@@ -11,6 +11,7 @@ export const Route = createFileRoute("/login")({
 
 function Login() {
 	const [isAuth] = useAuth();
+
 	return isAuth ? (
 		<Navigate to="/" />
 	) : (

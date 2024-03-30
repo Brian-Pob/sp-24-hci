@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+// import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
 	const [, setAuth] = useAuth();
@@ -20,7 +20,7 @@ export function LoginForm() {
 	const [, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate({ from: "/login" });
 	const form = useForm({
 		defaultValues: {
 			username: "",
@@ -30,7 +30,8 @@ export function LoginForm() {
 	async function onSubmit(values) {
 		setAuth(true);
 		console.log(values);
-		await navigate({ to: "/" });
+		location.reload();
+		// await navigate({ to: "/" });
 	}
 	return (
 		<Form {...form}>
