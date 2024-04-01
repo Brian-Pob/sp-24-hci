@@ -18,12 +18,20 @@ import { Route as IndexImport } from './routes/index'
 
 // Create Virtual Routes
 
+const SearchResultsLazyImport = createFileRoute('/search-results')()
 const SearchLazyImport = createFileRoute('/search')()
 const SavedLazyImport = createFileRoute('/saved')()
 const CreateLazyImport = createFileRoute('/create')()
 const AboutLazyImport = createFileRoute('/about')()
 
 // Create/Update Routes
+
+const SearchResultsLazyRoute = SearchResultsLazyImport.update({
+  path: '/search-results',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/search-results.lazy').then((d) => d.Route),
+)
 
 const SearchLazyRoute = SearchLazyImport.update({
   path: '/search',
@@ -83,6 +91,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchLazyImport
       parentRoute: typeof rootRoute
     }
+    '/search-results': {
+      preLoaderRoute: typeof SearchResultsLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -95,6 +107,7 @@ export const routeTree = rootRoute.addChildren([
   CreateLazyRoute,
   SavedLazyRoute,
   SearchLazyRoute,
+  SearchResultsLazyRoute,
 ])
 
 /* prettier-ignore-end */
