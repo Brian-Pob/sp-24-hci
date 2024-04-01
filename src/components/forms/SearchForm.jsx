@@ -8,7 +8,6 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "@tanstack/react-router";
 
@@ -54,38 +53,40 @@ export function SearchForm() {
 						</>
 					)}
 				/>
-				<FormField
-					control={form.control}
-					name="searchTags"
-					render={({ field }) => (
-						<>
-							<FormItem>
-								<FormLabel>tags</FormLabel>
-								<FormControl>
-									<Input placeholder="tags" {...field} type="text" />
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						</>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="searchFilters"
-					render={({ field }) => (
-						<>
-							<FormItem>
-								<FormLabel>filters</FormLabel>
-								<FormControl>
-									<Input placeholder="filters" {...field} type="text" />
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						</>
-					)}
-				/>
+				<div className="flex flex-row gap-2">
+					<FormField
+						control={form.control}
+						name="searchTags"
+						render={({ field }) => (
+							<>
+								<FormItem>
+									<FormLabel>tags</FormLabel>
+									<FormControl>
+										<Input placeholder="tags" {...field} type="text" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							</>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="searchFilters"
+						render={({ field }) => (
+							<>
+								<FormItem>
+									<FormLabel>filters</FormLabel>
+									<FormControl>
+										<Input placeholder="filters" {...field} type="text" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							</>
+						)}
+					/>
+				</div>
 
-				<Button type="submit">Login</Button>
+				<Button type="submit">Search</Button>
 			</form>
 		</Form>
 	);

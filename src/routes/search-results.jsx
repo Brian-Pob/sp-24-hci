@@ -4,10 +4,17 @@ export const Route = createFileRoute("/search-results")({
 	beforeLoad: ({ search }) => {
 		console.log(search);
 	},
-	component: ({ search }) => (
+	component: SearchResults,
+});
+
+function SearchResults() {
+	const { searchText, searchTags, searchFilters } = Route.useSearch();
+	return (
 		<div>
 			Hello /search-results!
-			<pre>{search}</pre>
+			<p>searchText: {searchText}</p>
+			<p>searchTags: {searchTags}</p>
+			<p>searchFilters: {searchFilters}</p>
 		</div>
-	),
-});
+	);
+}

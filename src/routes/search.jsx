@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { SearchForm } from "@/components/SearchForm";
+import { SearchForm } from "@/components/forms/SearchForm";
 
 export const Route = createFileRoute("/search")({
 	component: Search,
