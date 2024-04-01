@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -8,10 +9,9 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 // import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
@@ -33,6 +33,7 @@ export function LoginForm() {
 		location.reload();
 		// await navigate({ to: "/" });
 	}
+
 	return (
 		<Form {...form}>
 			<form

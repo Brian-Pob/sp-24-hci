@@ -9,11 +9,13 @@ export const Route = createRootRoute({
 function Root() {
 	const [isAuth] = useAuth();
 	return (
-		<main className="flex justify-center items-center flex-col h-svh p-4">
-			<Outlet />
-			{isAuth && <Navbar />}
+		<>
+			<main className="flex justify-center items-center flex-col h-[calc(100vh-5rem)] pt-4 pb-0 top-0">
+				<Outlet />
 
-			<TanStackRouterDevtools position="top-right" />
-		</main>
+				<TanStackRouterDevtools position="top-right" />
+			</main>
+			{isAuth && <Navbar />}
+		</>
 	);
 }

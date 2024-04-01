@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.svg";
-import { LoginForm } from "@/components/LoginForm";
+import { LoginForm } from "@/components/forms/LoginForm";
 import { useAuth } from "@/hooks/useAuth";
 import { Navigate } from "@tanstack/react-router";
 

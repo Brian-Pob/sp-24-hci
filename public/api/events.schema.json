@@ -1,0 +1,51 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "string",
+			"format": "uuid"
+		},
+		"title": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"date": {
+			"type": "string",
+			"format": "date"
+		},
+		"startTime": {
+			"type": "string",
+			"format": "time"
+		},
+		"endTime": {
+			"type": "string",
+			"format": "time"
+		},
+		"tags": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"location": {
+			"type": "string"
+		},
+		"image": {
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"required": [
+		"id",
+		"title",
+		"description",
+		"date",
+		"startTime",
+		"endTime",
+		"tags",
+		"location"
+	]
+}
