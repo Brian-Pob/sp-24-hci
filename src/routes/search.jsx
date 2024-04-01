@@ -8,13 +8,13 @@ export const Route = createFileRoute("/search")({
 
 function Search() {
 	return (
-		<div className="w-full flex flex-col gap-20">
+		<div className="w-full flex flex-col gap-20 p-4">
 			<div>
 				<h1 className="font-medium text-4xl text-center">
 					Let&apos;s find something fun!
 				</h1>
 			</div>
-			<div className="p-4">
+			<div className="">
 				<SearchForm />
 			</div>
 		</div>

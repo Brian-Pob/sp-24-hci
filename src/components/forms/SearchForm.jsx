@@ -8,8 +8,8 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
 import { useNavigate } from "@tanstack/react-router";
+import { useForm } from "react-hook-form";
 
 export function SearchForm() {
 	const navigate = useNavigate({ from: "/search" });
@@ -53,7 +53,7 @@ export function SearchForm() {
 						</>
 					)}
 				/>
-				<div className="flex flex-row gap-2">
+				<div className="grid grid-flow-col gap-2">
 					<FormField
 						control={form.control}
 						name="searchTags"

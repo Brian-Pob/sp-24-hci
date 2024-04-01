@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 
 export function LoginForm() {
 	const [, setAuth] = useAuth();
-	const [, setUsername] = useState("");
+	const [, setEmail] = useState("");
 	const [, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -52,7 +52,8 @@ export function LoginForm() {
 										placeholder="example@gmail.com"
 										{...field}
 										type="email"
-										onChange={(e) => setUsername(e.target.value)}
+										autoComplete="email"
+										onChange={(e) => setEmail(e.target.value)}
 									/>
 								</FormControl>
 								<FormMessage />
@@ -62,6 +63,7 @@ export function LoginForm() {
 								<FormControl>
 									<Input
 										placeholder="password"
+										autoComplete="current-password"
 										{...field}
 										type={showPassword ? "text" : "password"}
 										onChange={(e) => setPassword(e.target.value)}
