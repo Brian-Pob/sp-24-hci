@@ -14,7 +14,7 @@ function Search() {
 					Let&apos;s find something fun!
 				</h1>
 			</div>
-			<div>
+			<div className="p-4">
 				<SearchForm />
 			</div>
 		</div>
