@@ -8,44 +8,84 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "@tanstack/react-router";
 
 export function SearchForm() {
 	const navigate = useNavigate({ from: "/search" });
+
 	const form = useForm({
 		defaultValues: {
-			search: "",
+			searchText: "",
+			searchTags: "",
+			searchFilters: "",
 		},
+		mode: "onChange",
 	});
 
 	async function onSubmit(values) {
 		console.log(values);
-		const params = { values };
-		navigate({ to: "/search-results", params });
+		navigate({ to: "/search-results", search: values });
 	}
+
 	return (
 		<Form {...form}>
 			<form
-				className="flex flex-col gap-3"
 				onSubmit={form.handleSubmit(onSubmit)}
+				className="flex flex-col gap-3"
 			>
 				<FormField
 					control={form.control}
-					name="search"
+					name="searchText"
 					render={({ field }) => (
 						<>
 							<FormItem>
-								<FormLabel>Search</FormLabel>
+								<FormLabel>search</FormLabel>
 								<FormControl>
-									<Input placeholder="Search" {...field} type="text" />
+									<Input
+										placeholder="cooking, baking, etc."
+										{...field}
+										type="text"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						</>
 					)}
 				/>
-				<Button type="submit">Search</Button>
+				<FormField
+					control={form.control}
+					name="searchTags"
+					render={({ field }) => (
+						<>
+							<FormItem>
+								<FormLabel>tags</FormLabel>
+								<FormControl>
+									<Input placeholder="tags" {...field} type="text" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						</>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name="searchFilters"
+					render={({ field }) => (
+						<>
+							<FormItem>
+								<FormLabel>filters</FormLabel>
+								<FormControl>
+									<Input placeholder="filters" {...field} type="text" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						</>
+					)}
+				/>
+
+				<Button type="submit">Login</Button>
 			</form>
 		</Form>
 	);

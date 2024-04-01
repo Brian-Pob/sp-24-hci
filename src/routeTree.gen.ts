@@ -13,30 +13,18 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SearchResultsImport } from './routes/search-results'
+import { Route as SearchImport } from './routes/search'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
 
 // Create Virtual Routes
 
-const SearchResultsLazyImport = createFileRoute('/search-results')()
-const SearchLazyImport = createFileRoute('/search')()
 const SavedLazyImport = createFileRoute('/saved')()
 const CreateLazyImport = createFileRoute('/create')()
 const AboutLazyImport = createFileRoute('/about')()
 
 // Create/Update Routes
-
-const SearchResultsLazyRoute = SearchResultsLazyImport.update({
-  path: '/search-results',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/search-results.lazy').then((d) => d.Route),
-)
-
-const SearchLazyRoute = SearchLazyImport.update({
-  path: '/search',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/search.lazy').then((d) => d.Route))
 
 const SavedLazyRoute = SavedLazyImport.update({
   path: '/saved',
@@ -52,6 +40,16 @@ const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+
+const SearchResultsRoute = SearchResultsImport.update({
+  path: '/search-results',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SearchRoute = SearchImport.update({
+  path: '/search',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LoginRoute = LoginImport.update({
   path: '/login',
@@ -75,6 +73,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/search': {
+      preLoaderRoute: typeof SearchImport
+      parentRoute: typeof rootRoute
+    }
+    '/search-results': {
+      preLoaderRoute: typeof SearchResultsImport
+      parentRoute: typeof rootRoute
+    }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
@@ -87,14 +93,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SavedLazyImport
       parentRoute: typeof rootRoute
     }
-    '/search': {
-      preLoaderRoute: typeof SearchLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/search-results': {
-      preLoaderRoute: typeof SearchResultsLazyImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -103,11 +101,11 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   LoginRoute,
+  SearchRoute,
+  SearchResultsRoute,
   AboutLazyRoute,
   CreateLazyRoute,
   SavedLazyRoute,
-  SearchLazyRoute,
-  SearchResultsLazyRoute,
 ])
 
 /* prettier-ignore-end */

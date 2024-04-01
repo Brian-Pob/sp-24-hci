@@ -33,6 +33,7 @@ export function LoginForm() {
 		location.reload();
 		// await navigate({ to: "/" });
 	}
+
 	return (
 		<Form {...form}>
 			<form
