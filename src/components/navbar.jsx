@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
 	return (
-		<nav className="fixed bottom-0 left-0 z-50 w-full bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 ">
+		<nav className="fixed bottom-0 left-0 z-50 w-full bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 h-20">
 			<div className="flex justify-evenly h-full max-w-lg  mx-auto font-medium py-2">
 				<Link
 					to="/search"

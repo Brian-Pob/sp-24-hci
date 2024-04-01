@@ -32,6 +32,10 @@
 		},
 		"location": {
 			"type": "string"
+		},
+		"image": {
+			"type": "string",
+			"format": "uri"
 		}
 	},
 	"required": [

@@ -1,6 +1,6 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-
+import { Event } from "@/components/event";
 export const Route = createLazyFileRoute("/saved")({
 	component: Saved,
 });
@@ -21,11 +21,13 @@ function Saved() {
 	}, []);
 
 	return (
-		<div className="flex-grow w-full">
+		<div className="overflow-y-scroll w-full">
 			<h1 className="text-4xl font-medium">Saved Events</h1>
 			<ul>
 				{savedEvents.map((event) => (
-					<li key={event.id}>{event.title}</li>
+					<li key={event.id}>
+						<Event event={event} />
+					</li>
 				))}
 			</ul>
 		</div>
