@@ -26,7 +26,7 @@ In short, our research led us to find that people found the search aspect of our
 
 ### Medium
 
-![Medium Level](/readme-imagesStoryboard-2.jpg)
+![Medium Level](/readme-images/Storyboard-2.jpg)
 
 ### Hard
 
