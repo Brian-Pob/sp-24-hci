@@ -33,6 +33,14 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+
+    --container-xs: 24rem;
+    --container-sm: 28rem;
+    --container-md: 32rem;
+    --container-lg: 36rem;
+    --container-xl: 40rem;
+    --container-2xl: 44rem;
+    --container-3xl: 48rem;
   }
 
   .dark {
