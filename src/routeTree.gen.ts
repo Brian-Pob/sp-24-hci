@@ -13,10 +13,11 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as SearchResultsImport } from './routes/search-results'
-import { Route as SearchImport } from './routes/search'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
+import { Route as SearchIndexImport } from './routes/search.index'
+import { Route as SearchResultsImport } from './routes/search.results'
+import { Route as EventsEventIdImport } from './routes/events.$eventId'
 
 // Create Virtual Routes
 
@@ -41,16 +42,6 @@ const AboutLazyRoute = AboutLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
-const SearchResultsRoute = SearchResultsImport.update({
-  path: '/search-results',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const SearchRoute = SearchImport.update({
-  path: '/search',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const LoginRoute = LoginImport.update({
   path: '/login',
   getParentRoute: () => rootRoute,
@@ -58,6 +49,21 @@ const LoginRoute = LoginImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SearchIndexRoute = SearchIndexImport.update({
+  path: '/search/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SearchResultsRoute = SearchResultsImport.update({
+  path: '/search/results',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const EventsEventIdRoute = EventsEventIdImport.update({
+  path: '/events/$eventId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -73,14 +79,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
-    '/search': {
-      preLoaderRoute: typeof SearchImport
-      parentRoute: typeof rootRoute
-    }
-    '/search-results': {
-      preLoaderRoute: typeof SearchResultsImport
-      parentRoute: typeof rootRoute
-    }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
@@ -93,6 +91,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SavedLazyImport
       parentRoute: typeof rootRoute
     }
+    '/events/$eventId': {
+      preLoaderRoute: typeof EventsEventIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/search/results': {
+      preLoaderRoute: typeof SearchResultsImport
+      parentRoute: typeof rootRoute
+    }
+    '/search/': {
+      preLoaderRoute: typeof SearchIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -101,11 +111,12 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   LoginRoute,
-  SearchRoute,
-  SearchResultsRoute,
   AboutLazyRoute,
   CreateLazyRoute,
   SavedLazyRoute,
+  EventsEventIdRoute,
+  SearchResultsRoute,
+  SearchIndexRoute,
 ])
 
 /* prettier-ignore-end */

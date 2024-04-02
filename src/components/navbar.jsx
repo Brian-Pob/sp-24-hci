@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
 	return (
 		<nav className="fixed bottom-0 left-0 z-50 w-full bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 h-20">
-			<div className="flex justify-evenly h-full max-w-lg  mx-auto font-medium py-2">
+			<div className="grid grid-flow-col justify-evenly h-full max-w-lg  mx-auto font-medium py-2">
 				<Link
 					to="/search"
 					className={cn(
-						"inline-flex flex-col items-center justify-center p-2 hover:bg-gray-50 dark:hover:bg-gray-800 group border-b-2 border-transparent dark:border-transparent data-[status=active]:border-b-slate-600",
+						"inline-flex flex-col items-center justify-center p-2  group border-b-2 border-transparent dark:border-transparent data-[status=active]:border-b-slate-600",
 					)}
 				>
 					<svg
@@ -34,7 +34,7 @@ export function Navbar() {
 				<Link
 					to="/create"
 					className={cn(
-						"inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group border-b-2 border-transparent dark:border-transparent data-[status=active]:border-b-slate-600",
+						"inline-flex flex-col items-center justify-center p-2 group border-b-2 border-transparent dark:border-transparent data-[status=active]:border-b-slate-600",
 					)}
 				>
 					<svg
@@ -62,7 +62,7 @@ export function Navbar() {
 				<Link
 					to="/saved"
 					className={cn(
-						"inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group border-b-2 border-b-transparent dark:border-b-transparent data-[status=active]:border-b-slate-600",
+						"inline-flex flex-col items-center justify-center p-2  group border-b-2 border-b-transparent dark:border-b-transparent data-[status=active]:border-b-slate-600",
 					)}
 				>
 					<svg

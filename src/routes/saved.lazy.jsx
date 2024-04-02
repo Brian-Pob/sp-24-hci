@@ -21,7 +21,7 @@ function Saved() {
 	}, []);
 
 	return (
-		<div className="overflow-y-scroll w-full">
+		<div className="overflow-y-scroll w-full pb-4">
 			<h1 className="text-4xl font-medium p-4">Saved Events</h1>
 			<ul className="flex flex-col gap-4 px-4">
 				{savedEvents.map((event) => (

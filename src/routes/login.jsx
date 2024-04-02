@@ -15,7 +15,7 @@ function Login() {
 	return isAuth ? (
 		<Navigate to="/" />
 	) : (
-		<div className="w-full flex flex-col gap-20">
+		<div className="w-full flex flex-col gap-20 p-4">
 			<div>
 				<img src={logo} alt="logo" className="w-32 h-32 mx-auto" />
 				<h1 className="font-bold text-4xl text-center">GroupConnect</h1>
