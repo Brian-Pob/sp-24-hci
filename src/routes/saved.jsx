@@ -42,10 +42,12 @@ function Saved() {
 	return (
 		<div className="overflow-y-scroll w-full pb-4">
 			<div className="max-w-3xl mx-auto">
-				<h1 className="text-4xl font-medium p-4 tracking-tight">Saved Events</h1>
+				<h1 className="text-4xl font-medium p-4 tracking-tight">
+					Saved Events
+				</h1>
 				<ul className="flex flex-col gap-4 px-4">
 					{savedEvents.map((event) => (
-						<li key={event.id} className="shadow-lg rounded-lg">
+						<li key={event.id} className="shadow-xl rounded-lg">
 							<Event event={event} />
 						</li>
 					))}

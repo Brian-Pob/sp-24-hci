@@ -23,7 +23,7 @@ function EventPage() {
 					alt=""
 					width={300}
 					height={175}
-					className="object-cover w-full rounded-md"
+					className="object-cover w-full rounded-md shadow-lg"
 				/>
 				<span className="text-center w-fit mx-auto -mt-3">
 					{isRegistered ? "Registered" : "Not Registered"}

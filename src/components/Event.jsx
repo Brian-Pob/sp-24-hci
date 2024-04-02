@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 export function Event({ event }) {
 	return (
 		<Link to={`/events/${event.id}`}>
-			<div className="flex flex-col w-full border-2 border-zinc-200 rounded-md overflow-hidden  ">
+			<div className="flex flex-col w-full rounded-md overflow-hidden">
 				<img
 					src={event.image}
 					alt=""
