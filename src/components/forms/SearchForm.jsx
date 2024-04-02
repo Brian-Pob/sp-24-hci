@@ -25,7 +25,7 @@ export function SearchForm() {
 
 	async function onSubmit(values) {
 		console.log(values);
-		navigate({ to: "/search-results", search: values });
+		navigate({ to: "/search/results", search: values });
 	}
 
 	return (

@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/search-results")({
-	beforeLoad: ({ search }) => {
-		console.log(search);
-	},
+export const Route = createFileRoute("/search/results")({
 	component: SearchResults,
 });
 
