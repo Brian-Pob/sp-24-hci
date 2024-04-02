@@ -18,7 +18,7 @@ export function Search() {
 	return (
 		<div className="w-full flex flex-col gap-20 p-4 max-w-3xl">
 			<div>
-				<h1 className="font-medium text-4xl text-center">
+				<h1 className="font-medium text-4xl text-center tracking-tight">
 					Let&apos;s find something fun!
 				</h1>
 			</div>
