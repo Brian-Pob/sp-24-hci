@@ -25,7 +25,7 @@ function EventPage() {
 					height={175}
 					className="object-cover w-full rounded-md shadow-lg"
 				/>
-				<span className="text-center w-fit mx-auto -mt-3">
+				<span className="text-center w-fit mx-auto -mt-3 font-semibold">
 					{isRegistered ? "Registered" : "Not Registered"}
 				</span>
 				<div className="grid grid-flow-col items-center">
@@ -37,8 +37,8 @@ function EventPage() {
 						Click to {isRegistered ? "Unregister " : "Register "}
 					</Button>
 				</div>
-				<div className="grid grid-flow-col gap-2 items-center">
-					Tags:
+				<div className="flex flex-row gap-2 items-center">
+					<p className="w-fit">Tags:</p>
 					<ul className="flex flex-row flex-wrap gap-2">
 						{event.tags.map((tag) => (
 							<li
