@@ -14,8 +14,8 @@ function EventPage() {
 	const { event } = Route.useLoaderData();
 	const [isRegistered, setIsRegistered] = useState(false);
 	return (
-		<div className=" overflow-y-scroll">
-			<div className="max-w-3xl p-4 flex flex-col gap-4">
+		<div className="overflow-y-scroll min-w-[min(var(--container-2xl),100%)] ">
+			<div className="p-4 flex flex-col gap-4">
 				<h1 className="font-medium text-4xl">{event.title}</h1>
 
 				<img
@@ -37,17 +37,20 @@ function EventPage() {
 						Click to {isRegistered ? "Unregister " : "Register "}
 					</Button>
 				</div>
-				<ul className="flex flex-row flex-wrap gap-2">
+				<div className="grid grid-flow-col gap-2 items-center">
 					Tags:
-					{event.tags.map((tag) => (
-						<li
-							key={tag}
-							className="py-1 px-2 bg-zinc-200 rounded-md text-xs font-medium"
-						>
-							{tag}
-						</li>
-					))}
-				</ul>
+					<ul className="flex flex-row flex-wrap gap-2">
+						{event.tags.map((tag) => (
+							<li
+								key={tag}
+								className="py-1 px-2 bg-zinc-200 rounded-md text-xs font-medium"
+							>
+								{tag}
+							</li>
+						))}
+					</ul>
+				</div>
+
 				<div>
 					<div>
 						<span>{event.date}</span>
