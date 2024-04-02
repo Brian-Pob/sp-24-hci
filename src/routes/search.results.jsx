@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Event } from "@/components/event";
+import { Event } from "@/components/Event";
 import { redirect } from "@tanstack/react-router";
 export const Route = createFileRoute("/search/results")({
 	beforeLoad: async ({ context, location }) => {

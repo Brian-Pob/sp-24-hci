@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Event } from "@/components/event";
+import { Event } from "@/components/Event";
 export const Route = createFileRoute("/saved")({
 	beforeLoad: async ({ context, location }) => {
 		if (!context.isAuth) {
@@ -19,9 +19,18 @@ export const Route = createFileRoute("/saved")({
 });
 
 async function fetchSavedEvents() {
-	const response = await fetch("/api/events.json").then((res) => res.json());
+	// Hardcode ids of saved events for now
+	const savedEventIds = [
+		"e3d9ecb3-a120-415e-94d0-43dcb951da09",
+		"28d31180-f45e-401b-b049-f60ca894a7eb",
+		"3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
+	];
+	const allEvents = await fetch("/api/events.json").then((res) => res.json());
+	const savedEvents = allEvents.filter((event) =>
+		savedEventIds.includes(event.id),
+	);
 
-	return response;
+	return savedEvents;
 }
 
 function Saved() {
