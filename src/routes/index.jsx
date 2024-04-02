@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { redirect } from "@tanstack/react-router";
-
+import { Navigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
 	beforeLoad: async ({ context, location }) => {
 		if (!context.isAuth) {
@@ -14,15 +14,13 @@ export const Route = createFileRoute("/")({
 				},
 			});
 		}
-		console.log("Authenticated!");
+		throw redirect({
+			to: "/search",
+		});
 	},
 	component: Index,
 });
 
 function Index() {
-	return (
-		<div className="p-2">
-			<h3>Welcome Home!</h3>
-		</div>
-	);
+	return <Navigate to="/search" />;
 }

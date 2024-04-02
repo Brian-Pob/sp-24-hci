@@ -13,6 +13,7 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SavedImport } from './routes/saved'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
 import { Route as SearchIndexImport } from './routes/search.index'
@@ -21,16 +22,10 @@ import { Route as EventsEventIdImport } from './routes/events.$eventId'
 
 // Create Virtual Routes
 
-const SavedLazyImport = createFileRoute('/saved')()
 const CreateLazyImport = createFileRoute('/create')()
 const AboutLazyImport = createFileRoute('/about')()
 
 // Create/Update Routes
-
-const SavedLazyRoute = SavedLazyImport.update({
-  path: '/saved',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/saved.lazy').then((d) => d.Route))
 
 const CreateLazyRoute = CreateLazyImport.update({
   path: '/create',
@@ -41,6 +36,11 @@ const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+
+const SavedRoute = SavedImport.update({
+  path: '/saved',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const LoginRoute = LoginImport.update({
   path: '/login',
@@ -79,16 +79,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/saved': {
+      preLoaderRoute: typeof SavedImport
+      parentRoute: typeof rootRoute
+    }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
     '/create': {
       preLoaderRoute: typeof CreateLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/saved': {
-      preLoaderRoute: typeof SavedLazyImport
       parentRoute: typeof rootRoute
     }
     '/events/$eventId': {
@@ -111,9 +111,9 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   LoginRoute,
+  SavedRoute,
   AboutLazyRoute,
   CreateLazyRoute,
-  SavedLazyRoute,
   EventsEventIdRoute,
   SearchResultsRoute,
   SearchIndexRoute,
