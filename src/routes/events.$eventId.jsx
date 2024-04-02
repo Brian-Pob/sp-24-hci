@@ -26,9 +26,18 @@ function EventPage() {
 					height={175}
 					className="object-cover w-full rounded-md"
 				/>
-				<span className="border-2 border-black rounded-sm px-8 text-center w-fit mx-auto">
-					Status: {isRegistered ? "Registered" : "Not Registered"}
+				<span className="text-center w-fit mx-auto -mt-3">
+					{isRegistered ? "Registered" : "Not Registered"}
 				</span>
+				<div className="grid grid-flow-col items-center">
+					<Button
+						className="w-full border-slate-600"
+						variant={!isRegistered ? "default" : "outline"}
+						onClick={() => setIsRegistered(!isRegistered)}
+					>
+						Click to {isRegistered ? "Unregister " : "Register "}
+					</Button>
+				</div>
 				<ul className="flex flex-row flex-wrap gap-2">
 					Tags:
 					{event.tags.map((tag) => (
@@ -51,15 +60,7 @@ function EventPage() {
 						<span>{event.location}</span>
 					</div>
 				</div>
-				<p>{event.description}</p>
-
-				<Button
-					className="w-full border-slate-600"
-					variant={!isRegistered ? "default" : "outline"}
-					onClick={() => setIsRegistered(!isRegistered)}
-				>
-					{isRegistered ? "Unregister " : "Register "}for this Event
-				</Button>
+				<p className="max-h-[175px] overflow-y-scroll">{event.description}</p>
 			</div>
 		</div>
 	);

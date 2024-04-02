@@ -15,7 +15,7 @@ export function Event({ event }) {
 				<div className="p-4">
 					<h2 className="text-2xl font-medium">{event.title}</h2>
 					<div className="py-4">
-						<p>{event.description}</p>
+						<p className="">{event.description}</p>
 						<p>
 							{event.date} {event.startTime} - {event.endTime}
 						</p>
