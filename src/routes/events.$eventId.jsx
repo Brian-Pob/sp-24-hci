@@ -5,7 +5,6 @@ import { useState } from "react";
 export const Route = createFileRoute("/events/$eventId")({
 	loader: async ({ params }) => {
 		const event = await fetchEventById(params.eventId);
-		console.log(event);
 		return { event };
 	},
 	component: EventPage,
