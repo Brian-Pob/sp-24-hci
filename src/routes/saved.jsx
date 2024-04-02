@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Event } from "@/components/event";
+import { Event } from "@/components/Event";
 export const Route = createFileRoute("/saved")({
 	beforeLoad: async ({ context, location }) => {
 		if (!context.isAuth) {
