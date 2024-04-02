@@ -11,7 +11,7 @@ function Root() {
 	const [isAuth] = useAuth();
 	return (
 		<>
-			<main className="flex justify-center items-center flex-col h-[calc(100vh-5rem)] top-0">
+			<main className="flex justify-center items-center flex-col h-[calc(100svh-5rem)] top-0">
 				<Outlet />
 
 				<TanStackRouterDevtools position="top-right" />
