@@ -13,18 +13,23 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Navigate } from "@tanstack/react-router";
+import {redirect } from "@tanstack/react-router";
+import { useNavigate } from '@tanstack/react-router';
+
 export const Route = createFileRoute('/create')({
   component: Create
 
 });
 
+
 function Create(){
-  const [, setAuth] = useAuth();
-  const [, setEmail] = useState("");
+	const navigate = useNavigate();
+  	const [, setAuth] = useAuth();
+  	const [, setEmail] = useState("");
 	const [, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
-
-	// const navigate = useNavigate({ from: "/login" });
+	//const navigate = useNavigate({ from: "/create" });
 	const form = useForm({
 		defaultValues: {
 			email: "",
@@ -34,14 +39,17 @@ function Create(){
 	});
 
 	async function onSubmit(values) {
-		setAuth(true);
 		console.log(values);
 		console.log(values.email);
 		console.log(values.password);
-		//location.reload();
-		// await navigate({ to: "/" });
+		localStorage.setItem(values.email, JSON.stringify(values));
+		console.log(localStorage.getItem(values.email));
+		navigate({
+			to: "/login",
+		});
+	
 	}
-  return (
+  return  (
   	<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
@@ -90,6 +98,5 @@ function Create(){
 				<Button type="submit">Register</Button>
 			</form>
 		</Form>
-   
   );
 }

@@ -30,11 +30,9 @@ export function LoginForm() {
 	});
 
 	async function onSubmit(values) {
-		setAuth(true);
-		console.log(values);
-		console.log(values.email);
-		console.log(values.password);
-		//location.reload();
+		if (localStorage.getItem(values.email) == values)
+			console.log("hi")
+
 		// await navigate({ to: "/" });
 	}
 
