@@ -23,8 +23,10 @@ export function LoginForm() {
 	// const navigate = useNavigate({ from: "/login" });
 	const form = useForm({
 		defaultValues: {
-			username: "",
+			email: "",
+			password: "",
 		},
+		mode: "onChange",
 	});
 
 	async function onSubmit(values) {
@@ -55,7 +57,6 @@ export function LoginForm() {
 										{...field}
 										type="email"
 										autoComplete="email"
-										onChange={(e) => setEmail(e.target.value)}
 									/>
 								</FormControl>
 								<FormMessage />
@@ -76,7 +77,6 @@ export function LoginForm() {
 										autoComplete="current-password"
 										{...field}
 										type={showPassword ? "text" : "password"}
-										onChange={(e) => setPassword(e.target.value)}
 									/>
 								</FormControl>
 								<FormMessage />
