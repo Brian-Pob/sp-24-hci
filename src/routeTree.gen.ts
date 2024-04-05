@@ -15,6 +15,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as SavedImport } from './routes/saved'
 import { Route as LoginImport } from './routes/login'
+import { Route as CreateImport } from './routes/create'
 import { Route as IndexImport } from './routes/index'
 import { Route as SearchIndexImport } from './routes/search.index'
 import { Route as SearchResultsImport } from './routes/search.results'
@@ -22,15 +23,9 @@ import { Route as EventsEventIdImport } from './routes/events.$eventId'
 
 // Create Virtual Routes
 
-const CreateLazyImport = createFileRoute('/create')()
 const AboutLazyImport = createFileRoute('/about')()
 
 // Create/Update Routes
-
-const CreateLazyRoute = CreateLazyImport.update({
-  path: '/create',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/create.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
@@ -44,6 +39,11 @@ const SavedRoute = SavedImport.update({
 
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreateRoute = CreateImport.update({
+  path: '/create',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -75,6 +75,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/create': {
+      preLoaderRoute: typeof CreateImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
@@ -85,10 +89,6 @@ declare module '@tanstack/react-router' {
     }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/create': {
-      preLoaderRoute: typeof CreateLazyImport
       parentRoute: typeof rootRoute
     }
     '/events/$eventId': {
@@ -110,10 +110,10 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  CreateRoute,
   LoginRoute,
   SavedRoute,
   AboutLazyRoute,
-  CreateLazyRoute,
   EventsEventIdRoute,
   SearchResultsRoute,
   SearchIndexRoute,
