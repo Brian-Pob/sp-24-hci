@@ -30,7 +30,9 @@ export function LoginForm() {
 	async function onSubmit(values) {
 		setAuth(true);
 		console.log(values);
-		location.reload();
+		console.log(values.email);
+		console.log(values.password);
+		//location.reload();
 		// await navigate({ to: "/" });
 	}
 
@@ -58,6 +60,14 @@ export function LoginForm() {
 								</FormControl>
 								<FormMessage />
 							</FormItem>
+						</>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name="password"
+					render={({ field }) => (
+						<>
 							<FormItem>
 								<FormLabel>password</FormLabel>
 								<FormControl>
@@ -69,8 +79,16 @@ export function LoginForm() {
 										onChange={(e) => setPassword(e.target.value)}
 									/>
 								</FormControl>
+								<FormMessage />
 							</FormItem>
-							<FormItem>
+						</>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name="show password"
+					render={({ field }) => (
+						<FormItem>
 								<FormControl>
 									<Checkbox
 										{...field}
@@ -80,9 +98,8 @@ export function LoginForm() {
 								</FormControl>
 								<FormLabel>Show Password</FormLabel>
 							</FormItem>
-						</>
 					)}
-				/>
+				/>	
 				<Button type="submit">Login</Button>
 			</form>
 		</Form>
