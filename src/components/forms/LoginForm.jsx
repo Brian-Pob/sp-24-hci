@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {useNavigate} from "@tanstack/react-router";
 // import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
@@ -20,7 +21,7 @@ export function LoginForm() {
 	const [, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 
-	// const navigate = useNavigate({ from: "/login" });
+	const navigate = useNavigate({ from: "/login" });
 	const form = useForm({
 		defaultValues: {
 			email: "",
@@ -30,9 +31,19 @@ export function LoginForm() {
 	});
 
 	async function onSubmit(values) {
-		if (localStorage.getItem(values.email) == values)
-			console.log("hi")
-
+		const stored_data_string = localStorage.getItem(values.email);
+		if (stored_data_string !=null)
+		{
+			const storedData = JSON.parse(stored_data_string);
+			if (storedData.email === values.email && storedData.password === values.password)
+			{
+				setAuth(true);
+				navigate({
+					to: "/search",
+				});
+			}
+		}
+		location.reload();
 		// await navigate({ to: "/" });
 	}
 
