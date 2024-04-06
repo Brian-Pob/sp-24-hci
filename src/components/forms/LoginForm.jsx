@@ -13,6 +13,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {useNavigate} from "@tanstack/react-router";
+import { setErrorMap } from "zod";
 // import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
@@ -43,6 +44,7 @@ export function LoginForm() {
 				});
 			}
 		}
+
 		location.reload();
 	}
 
