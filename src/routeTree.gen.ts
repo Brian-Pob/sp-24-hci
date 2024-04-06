@@ -27,15 +27,9 @@ import { Route as EventsEventIdImport } from './routes/events.$eventId'
 
 // Create Virtual Routes
 
-const CreateLazyImport = createFileRoute('/create')()
 const AboutLazyImport = createFileRoute('/about')()
 
 // Create/Update Routes
-
-const CreateLazyRoute = CreateLazyImport.update({
-  path: '/create',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/create.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
@@ -49,6 +43,11 @@ const SavedRoute = SavedImport.update({
 
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreateRoute = CreateImport.update({
+  path: '/create',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -116,10 +115,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
-    '/create': {
-      preLoaderRoute: typeof CreateLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/events/$eventId': {
       preLoaderRoute: typeof EventsEventIdImport
       parentRoute: typeof rootRoute
@@ -147,7 +142,6 @@ export const routeTree = rootRoute.addChildren([
   LoginRoute,
   SavedRoute,
   AboutLazyRoute,
-  CreateLazyRoute,
   EventsEventIdRoute,
   SearchResultsRoute,
   SearchIndexRoute,
