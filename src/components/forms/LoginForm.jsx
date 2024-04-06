@@ -44,7 +44,6 @@ export function LoginForm() {
 			}
 		}
 		location.reload();
-		// await navigate({ to: "/" });
 	}
 
 	return (
