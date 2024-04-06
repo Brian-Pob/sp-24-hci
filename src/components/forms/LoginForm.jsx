@@ -13,13 +13,13 @@ import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {useNavigate} from "@tanstack/react-router";
-import { setErrorMap } from "zod";
+// import { setErrorMap } from "zod";
 // import { useNavigate } from "@tanstack/react-router";
 
 export function LoginForm() {
 	const [, setAuth] = useAuth();
-	const [, setEmail] = useState("");
-	const [, setPassword] = useState("");
+	// const [, setEmail] = useState("");
+	// const [, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 
 	const navigate = useNavigate({ from: "/login" });

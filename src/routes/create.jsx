@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+// import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -10,25 +10,23 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "@/hooks/useAuth";
-import { useState } from "react";
+// import { useAuth } from "@/hooks/useAuth";
+// import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate } from "@tanstack/react-router";
-import {redirect } from "@tanstack/react-router";
-import { useNavigate } from '@tanstack/react-router';
+// import { Navigate } from "@tanstack/react-router";
+// import { redirect } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/create')({
-  component: Create
-
+export const Route = createFileRoute("/create")({
+	component: Create,
 });
 
-
-function Create(){
+function Create() {
 	const navigate = useNavigate();
-  	const [, setAuth] = useAuth();
-  	const [, setEmail] = useState("");
-	const [, setPassword] = useState("");
-	const [showPassword, setShowPassword] = useState(false);
+	// const [, setAuth] = useAuth();
+	// const [, setEmail] = useState("");
+	// const [, setPassword] = useState("");
+	// const [showPassword, setShowPassword] = useState(false);
 	//const navigate = useNavigate({ from: "/create" });
 	const form = useForm({
 		defaultValues: {
@@ -47,10 +45,9 @@ function Create(){
 		navigate({
 			to: "/login",
 		});
-	
 	}
-  return  (
-  	<Form {...form}>
+	return (
+		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="flex flex-col gap-3"
@@ -98,5 +95,5 @@ function Create(){
 				<Button type="submit">Register</Button>
 			</form>
 		</Form>
-  );
+	);
 }
