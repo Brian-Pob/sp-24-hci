@@ -15,6 +15,11 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as SavedImport } from './routes/saved'
 import { Route as LoginImport } from './routes/login'
+<<<<<<< Updated upstream
+=======
+import { Route as CreatePostImport } from './routes/create-post'
+import { Route as CreateImport } from './routes/create'
+>>>>>>> Stashed changes
 import { Route as IndexImport } from './routes/index'
 import { Route as SearchIndexImport } from './routes/search.index'
 import { Route as SearchResultsImport } from './routes/search.results'
@@ -47,6 +52,19 @@ const LoginRoute = LoginImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+<<<<<<< Updated upstream
+=======
+const CreatePostRoute = CreatePostImport.update({
+  path: '/create-post',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CreateRoute = CreateImport.update({
+  path: '/create',
+  getParentRoute: () => rootRoute,
+} as any)
+
+>>>>>>> Stashed changes
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
@@ -75,6 +93,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+<<<<<<< Updated upstream
+=======
+    '/create': {
+      preLoaderRoute: typeof CreateImport
+      parentRoute: typeof rootRoute
+    }
+    '/create-post': {
+      preLoaderRoute: typeof CreatePostImport
+      parentRoute: typeof rootRoute
+    }
+>>>>>>> Stashed changes
     '/login': {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
@@ -110,6 +139,11 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+<<<<<<< Updated upstream
+=======
+  CreateRoute,
+  CreatePostRoute,
+>>>>>>> Stashed changes
   LoginRoute,
   SavedRoute,
   AboutLazyRoute,

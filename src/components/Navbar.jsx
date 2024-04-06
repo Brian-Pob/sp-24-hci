@@ -32,7 +32,7 @@ export function Navbar() {
 					</span>
 				</Link>
 				<Link
-					to="/create"
+					to="/create-post"
 					className={cn(
 						"inline-flex flex-col items-center justify-center p-2 group border-b-2 border-transparent dark:border-transparent data-[status=active]:border-b-slate-600",
 					)}
