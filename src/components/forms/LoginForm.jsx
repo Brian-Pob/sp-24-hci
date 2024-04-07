@@ -38,6 +38,8 @@ export function LoginForm() {
 			const storedData = JSON.parse(stored_data_string);
 			if (storedData.email === values.email && storedData.password === values.password)
 			{
+				const currentUser = "currentUser";
+				localStorage.setItem(currentUser, JSON.stringify(values.email));
 				setAuth(true);
 				navigate({
 					to: "/search",
