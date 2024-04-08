@@ -11,10 +11,20 @@ export const Route = createFileRoute("/events/$eventId")({
 	component: EventPage,
 });
 
+function checkIfRegistered(eventParams) {
+	const emailString = localStorage.getItem("currentUser");
+	const key = emailString + "/" + String(eventParams.eventId);
+	if (localStorage.getItem(key) !== null)
+		return true;
+	else
+		return false;
+}
+
 function EventPage() {
+	//what function do i use to check i
 	const eventParams = useParams({ from: '/events/$eventId' });
 	const { event } = Route.useLoaderData();
-	const [isRegistered, setIsRegistered] = useState(false);
+	const [isRegistered, setIsRegistered] = useState(checkIfRegistered(eventParams));
 	function registrationHandler(isRegistered)
 	{
 		setIsRegistered(!isRegistered);

@@ -15,17 +15,30 @@ export const Route = createFileRoute("/saved")({
 	component: Saved,
 });
 
+function filterEvents(allEvents)
+{
+	const savedEventList = [];
+	const emailString = localStorage.getItem("currentUser");
+	for (let i = 0; i < allEvents.length; i++)
+	{
+		
+		const key =  emailString + "/" + String(allEvents[i].id);
+		if (localStorage.getItem(key) !== null)
+			savedEventList.push(allEvents[i]);
+	}
+	return savedEventList;
+}
+
 async function fetchSavedEvents() {
 	// Hardcode ids of saved events for now
-	const savedEventIds = [
-		"e3d9ecb3-a120-415e-94d0-43dcb951da09",
-		"28d31180-f45e-401b-b049-f60ca894a7eb",
-		"3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
-	];
+
+	//const savedEventIds = [
+	//	"e3d9ecb3-a120-415e-94d0-43dcb951da09",
+	//	"28d31180-f45e-401b-b049-f60ca894a7eb",
+	//	"3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
+	//];
 	const allEvents = await fetch("/api/events.json").then((res) => res.json());
-	const savedEvents = allEvents.filter((event) =>
-		savedEventIds.includes(event.id),
-	);
+	const savedEvents = filterEvents(allEvents);
 
 	return savedEvents;
 }
