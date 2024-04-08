@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 
 export const Route = createFileRoute("/events/$eventId")({
@@ -10,9 +11,39 @@ export const Route = createFileRoute("/events/$eventId")({
 	component: EventPage,
 });
 
+function checkIfRegistered(eventParams) {
+	const emailString = localStorage.getItem("currentUser");
+	const key = emailString + "/" + String(eventParams.eventId);
+	if (localStorage.getItem(key) !== null)
+		return true;
+	else
+		return false;
+}
+
 function EventPage() {
+	//what function do i use to check i
+	const eventParams = useParams({ from: '/events/$eventId' });
 	const { event } = Route.useLoaderData();
-	const [isRegistered, setIsRegistered] = useState(false);
+	const [isRegistered, setIsRegistered] = useState(checkIfRegistered(eventParams));
+	function registrationHandler(isRegistered)
+	{
+		setIsRegistered(!isRegistered);
+			//if i can get the email then registering events becomes quite trivial
+		const timestamp = new Date();
+		const emailString = localStorage.getItem("currentUser");
+		const key = emailString + "/" + String(eventParams.eventId);
+		if (isRegistered === false)
+		{
+			console.log(eventParams.eventId);
+			localStorage.setItem(key, JSON.stringify(eventParams.eventId));
+			console.log(localStorage.getItem(key));
+		}
+		else
+		{
+			if (localStorage.getItem(key) !== null)
+				localStorage.removeItem(key);
+		}
+	}
 	return (
 		<div className="overflow-y-scroll min-w-[min(var(--container-2xl),100%)] ">
 			<div className="p-4 flex flex-col gap-4">
@@ -32,7 +63,7 @@ function EventPage() {
 					<Button
 						className="w-full border-slate-600"
 						variant={!isRegistered ? "default" : "outline"}
-						onClick={() => setIsRegistered(!isRegistered)}
+						onClick={() => registrationHandler(isRegistered)}
 					>
 						Click to {isRegistered ? "Unregister " : "Register "}
 					</Button>
