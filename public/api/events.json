@@ -8,7 +8,7 @@
 		"endTime": "18:30:00-04:00",
 		"tags": ["study", "math", "calculus"],
 		"location": "University Library, Room 212",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1676302447092-14a103558511?q=80&w=2535&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "e3d9ecb3-a120-415e-94d0-43dcb951da09",
@@ -19,7 +19,7 @@
 		"endTime": "21:30:00-07:00",
 		"tags": ["programming", "python", "meetup", "networking"],
 		"location": "The Coding Space",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "4c0b826c-0e41-4cc8-a1d0-b5de896f486e",
@@ -30,7 +30,7 @@
 		"endTime": "23:30:00+01:00",
 		"tags": ["music", "concert", "indie", "live"],
 		"location": "Downtown Music Hall",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "bc9967fe-d91a-4c31-a6f0-8a12ad91153f",
@@ -41,7 +41,7 @@
 		"endTime": "15:00:00-05:00",
 		"tags": ["art", "workshop", "painting", "watercolor"],
 		"location": "Community Arts Center",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1616169201999-0d80789e41c3?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "28d31180-f45e-401b-b049-f60ca894a7eb",
@@ -52,7 +52,7 @@
 		"endTime": "17:00:00+02:00",
 		"tags": ["career", "job", "fair", "networking"],
 		"location": "City Conference Hall",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1532619187608-e5375cab36aa?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "1d9ab628-e098-4e01-a6d1-4eb80875e4b2",
@@ -63,7 +63,7 @@
 		"endTime": "22:00:00-08:00",
 		"tags": ["sports", "basketball", "championship", "game"],
 		"location": "City Arena",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1522028067194-85ce8814a419?q=80&w=2395&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "f4b3b3b4-1b3b-4b3b-8b3b-1b3b3b3b3b3b",
@@ -74,7 +74,7 @@
 		"endTime": "23:00:00-06:00",
 		"tags": ["music", "festival", "live", "concert"],
 		"location": "Riverside Park",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1619229725920-ac8b63b0631a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "b3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
@@ -85,7 +85,7 @@
 		"endTime": "09:30:00-04:00",
 		"tags": ["coding", "programming", "outdoor", "study"],
 		"location": "Central Park",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1592753054398-9fa298d40e85?q=80&w=2518&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	},
 	{
 		"id": "3b3b3b3b-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
@@ -96,6 +96,6 @@
 		"endTime": "18:00:00-05:00",
 		"tags": ["math", "calculus", "workshop", "fun"],
 		"location": "City Park",
-		"image": "https://api.lorem.space/image/book?w=300&h=175"
+		"image": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 	}
 ]
