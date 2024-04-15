@@ -13,9 +13,9 @@ export const Route = createFileRoute("/events/$eventId")({
 
 function checkIfRegistered(eventParams) {
   const emailString = localStorage.getItem("currentUser");
-  const key = emailString + "/" + String(eventParams.eventId);
+  const key = `${emailString}/${String(eventParams.eventId)}`;
   if (localStorage.getItem(key) !== null) return true;
-  else return false;
+  return false;
 }
 
 function EventPage() {
@@ -28,9 +28,8 @@ function EventPage() {
   function registrationHandler(isRegistered) {
     setIsRegistered(!isRegistered);
     //if i can get the email then registering events becomes quite trivial
-    const timestamp = new Date();
     const emailString = localStorage.getItem("currentUser");
-    const key = emailString + "/" + String(eventParams.eventId);
+    const key = `${emailString}/${String(eventParams.eventId)}`;
     if (isRegistered === false) {
       console.log(eventParams.eventId);
       localStorage.setItem(key, JSON.stringify(eventParams.eventId));
@@ -81,6 +80,7 @@ function EventPage() {
           <div>
             <div className="flex flex-row gap-2">
               <svg
+                role='presentation'
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -98,6 +98,7 @@ function EventPage() {
             </div>
             <div className="flex flex-row gap-2">
               <svg
+              role='presentation'
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -117,6 +118,7 @@ function EventPage() {
           </div>
           <div className="flex flex-row gap-2">
               <svg
+              role='presentation'
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -149,7 +151,7 @@ function formatTime(timeString) {
   const time = timeString.match(/(\d+):(\d+)/);
   if (!time) return timeString; // Return the original string if it doesn't match the expected format
 
-  let hours = parseInt(time[1], 10);
+  let hours = Number.parseInt(time[1], 10);
   const minutes = time[2];
   const suffix = hours >= 12 ? "PM" : "AM";
 
