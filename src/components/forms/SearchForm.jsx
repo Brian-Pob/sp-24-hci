@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Form,
 	FormControl,
@@ -17,7 +18,7 @@ export function SearchForm() {
 	const form = useForm({
 		defaultValues: {
 			searchText: "",
-			searchTags: "",
+			searchTags: [],
 			searchFilters: "",
 		},
 		mode: "onChange",
@@ -25,8 +26,11 @@ export function SearchForm() {
 
 	async function onSubmit(values) {
 		console.log(values);
+
 		navigate({ to: "/search/results", search: values });
 	}
+
+	const exampleTags = ["music", "coding", "math"];
 
 	return (
 		<Form {...form}>
@@ -53,28 +57,63 @@ export function SearchForm() {
 						</>
 					)}
 				/>
-				<div className="grid grid-flow-col gap-2">
+				<div className="grid sm:grid-cols-2 gap-2 ">
 					<FormField
+						className=""
 						control={form.control}
-						name="searchTags"
-						render={({ field }) => (
-							<>
-								<FormItem>
-									<FormLabel>tags</FormLabel>
-									<FormControl>
-										<Input placeholder="tags" {...field} type="text" />
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							</>
+						name="items"
+						render={() => (
+							<FormItem className="overflow-hidden">
+								<div className="-mb-8">
+									<FormLabel className="text-base">Popular Tags</FormLabel>
+								</div>
+								<div
+									className="flex flex-row overflow-x-auto py-8 gap-4 relative"
+								
+								>
+									{exampleTags.map((tag) => (
+										<FormField
+											key={tag}
+											control={form.control}
+											name="searchTags"
+											render={({ field }) => {
+												return (
+													<FormItem
+														key={tag}
+														className="flex flex-row items-start space-x-1 space-y-0"
+													>
+														<FormControl>
+															<Checkbox
+																checked={field.value?.includes(tag)}
+																onCheckedChange={(checked) => {
+																	return checked
+																		? field.onChange([...field.value, tag])
+																		: field.onChange(
+																				field.value?.filter(
+																					(value) => value !== tag,
+																				),
+																			);
+																}}
+															/>
+														</FormControl>
+														<FormLabel className="font-normal">{tag}</FormLabel>
+													</FormItem>
+												);
+											}}
+										/>
+									))}
+								</div>
+								<FormMessage />
+							</FormItem>
 						)}
 					/>
+
 					<FormField
 						control={form.control}
 						name="searchFilters"
 						render={({ field }) => (
 							<>
-								<FormItem>
+								<FormItem className="sm:flex flex-row items-center gap-2 ">
 									<FormLabel>filters</FormLabel>
 									<FormControl>
 										<Input placeholder="filters" {...field} type="text" />
