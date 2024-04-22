@@ -40,14 +40,12 @@ function EventPage() {
   }
   return (
     <div className="overflow-y-scroll min-w-[min(var(--container-2xl),100%)] ">
-      <div className="p-4 flex flex-col gap-4">
+      <div className="p-4 flex flex-col gap-4" style={{maxWidth: 800}}>
         <h1 className="font-medium text-4xl">{event.title}</h1>
 
         <img
           src={event.image}
           alt=""
-          width={300}
-          height={175}
           className="object-cover w-full rounded-md shadow-lg"
         />
         <span className="text-center w-fit mx-auto -mt-3 font-semibold">
