@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
+import {formatDate, formatTime} from "@/lib/utils";
 
 export const Route = createFileRoute("/events/$eventId")({
   loader: async ({ params }) => {
@@ -40,14 +41,12 @@ function EventPage() {
   }
   return (
     <div className="overflow-y-scroll min-w-[min(var(--container-2xl),100%)] ">
-      <div className="p-4 flex flex-col gap-4">
+      <div className="p-4 flex flex-col gap-4 max-w-3xl">
         <h1 className="font-medium text-4xl">{event.title}</h1>
 
         <img
           src={event.image}
           alt=""
-          width={300}
-          height={175}
           className="object-cover w-full rounded-md shadow-lg"
         />
         <span className="text-center w-fit mx-auto -mt-3 font-semibold">
@@ -146,26 +145,3 @@ async function fetchEventById(eventId) {
   return response.find((event) => event.id === eventId);
 }
 
-function formatTime(timeString) {
-  if (!timeString) return ""; // Return empty string if no time is provided
-  const time = timeString.match(/(\d+):(\d+)/);
-  if (!time) return timeString; // Return the original string if it doesn't match the expected format
-
-  let hours = Number.parseInt(time[1], 10);
-  const minutes = time[2];
-  const suffix = hours >= 12 ? "PM" : "AM";
-
-  hours = hours % 12;
-  hours = hours ? hours : 12; // '0' hours converts to '12'
-
-  return `${hours}:${minutes} ${suffix}`;
-}
-
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    month: "long", // full name of the month
-    day: "numeric", // numeric day of the month
-    year: "numeric", // numeric year
-  });
-}
