@@ -19,6 +19,7 @@ function Login() {
 			<div>
 				<img src={logo} alt="logo" className="w-32 h-32 mx-auto" />
 				<h1 className="font-bold text-4xl text-center">GroupConnect</h1>
+				<p className='mt-8 font-semibold text-2xl text-center '>The place to find something fun! 🎉</p>
 			</div>
 			<div>
 				<LoginForm />
