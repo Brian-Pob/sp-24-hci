@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { TimePickerDemo } from "@/components/DateTimePickerDemo";
  
-export function DateTimePicker() {
+export function DateTimePicker({disabled}) {
   const [date, setDate] = React.useState(new Date());
  
   return (
@@ -26,6 +26,7 @@ export function DateTimePicker() {
             "w-[280px] justify-start text-left font-normal",
             !date && "text-muted-foreground"
           )}
+          disabled={disabled}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
           {date ? format(date, "PPP HH:mm:ss") : <span>Pick a date</span>}

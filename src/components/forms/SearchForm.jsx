@@ -110,37 +110,41 @@ export function SearchForm() {
 						)}
 					/>
 					<div>
-
-					<FormLabel className='text-base'>Filters</FormLabel>
-					<FormField
-						control={form.control}
-						name="filterByDate"
-						render={({ field }) => (
-							<FormItem className="flex flex-row items-center space-x-1 space-y-0 mt-2">
-								<FormControl>
-									<Checkbox
-										checked={field.value}
-										onCheckedChange={(checked) => {
-											field.onChange(checked);
-											setShowDatePickers(checked);
-										}}
-									/>
-								</FormControl>
-								<FormLabel className="mt-0 font-normal">Filter by Date</FormLabel>
-							</FormItem>
-						)}
-					/>
+						<FormLabel className="text-base">Filters</FormLabel>
+						<FormField
+							control={form.control}
+							name="filterByDate"
+							render={({ field }) => (
+								<FormItem className="flex flex-row items-center space-x-1 space-y-0 mt-2">
+									<FormControl>
+										<Checkbox
+											checked={field.value}
+											onCheckedChange={(checked) => {
+												field.onChange(checked);
+												setShowDatePickers(checked);
+											}}
+										/>
+									</FormControl>
+									<FormLabel className="mt-0 font-normal">
+										Filter by Date
+									</FormLabel>
+								</FormItem>
+							)}
+						/>
 					</div>
 				</div>
 
-				{showDatePickers && (
-					<div className="space-x-2 pb-4">
+				<div className="flex flex-col sm:flex-row pb-4 gap-4">
+					<div className="flex flex-col">
 						<FormLabel>Start Date</FormLabel>
-						<DateTimePicker control={form.control} name="dateStart" />
-						<FormLabel>End Date</FormLabel>
-						<DateTimePicker control={form.control} name="dateEnd" />
+						<DateTimePicker control={form.control} name="dateStart" disabled={!showDatePickers}/>
 					</div>
-				)}
+
+					<div className="flex flex-col">
+						<FormLabel>End Date</FormLabel>
+						<DateTimePicker control={form.control} name="dateEnd" disabled={!showDatePickers} />
+					</div>
+				</div>
 
 				<Button type="submit">Search</Button>
 			</form>
